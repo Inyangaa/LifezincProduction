@@ -1,0 +1,55 @@
+/* Fade up on first load */
+.lz-fade-in-up {
+  opacity: 0;
+  transform: translateY(16px);
+  animation: lz-fade-in-up 0.5s ease-out forwards;
+}
+
+@keyframes lz-fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Softer, slower fade for secondary sections */
+.lz-soft-fade {
+  opacity: 0;
+  animation: lz-soft-fade 0.6s ease-out forwards;
+}
+
+@keyframes lz-soft-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Button tap / press animation (great on mobile) */
+.lz-tap {
+  transition: transform 0.16s ease, box-shadow 0.16s ease;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.lz-tap:active {
+  transform: scale(0.96) translateY(1px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .lz-fade-in-up,
+  .lz-soft-fade {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .lz-tap {
+    transition: none !important;
+  }
+}

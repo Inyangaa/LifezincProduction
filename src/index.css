@@ -1,0 +1,230 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Nunito:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.5s ease-out;
+}
+
+:root {
+  /* Primary Brand Colors */
+  --color-primary: #588a7e;
+  --color-primary-light: #75a599;
+  --color-primary-dark: #456f66;
+
+  /* Accent Colors */
+  --color-accent: #d4795a;
+  --color-accent-light: #e19b7d;
+  --color-accent-dark: #c15d42;
+
+  /* Soft Backgrounds */
+  --bg-cream: #faf9f7;
+  --bg-sand: #f5f3f0;
+  --bg-mist: #f0eeeb;
+  --bg-pearl: #fdfcfb;
+
+  /* Text Colors */
+  --text-primary: #2d3436;
+  --text-secondary: #4a5258;
+  --text-tertiary: #6b7c7a;
+  --text-muted: #8f9c9a;
+  --text-placeholder: #b0bbb9;
+
+  /* Verse Highlight */
+  --color-verse: #f5a524;
+  --color-verse-light: #fdeab8;
+  --color-verse-dark: #e68710;
+
+  /* Crisis Warning */
+  --color-crisis: #ef4444;
+  --color-crisis-light: #fecaca;
+  --color-crisis-dark: #dc2626;
+
+  /* Success & Info */
+  --color-success: #22c55e;
+  --color-info: #0ea5e9;
+
+  /* Typography */
+  --font-heading: "Poppins", "Nunito", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --heading-weight: 600;
+}
+
+@layer base {
+  body {
+    @apply font-sans antialiased;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+    font-weight: var(--heading-weight);
+  }
+
+  h1 {
+    @apply text-4xl md:text-5xl;
+  }
+
+  h2 {
+    @apply text-3xl md:text-4xl;
+  }
+
+  h3 {
+    @apply text-2xl md:text-3xl;
+  }
+
+  h4 {
+    @apply text-xl md:text-2xl;
+  }
+
+  h5 {
+    @apply text-lg md:text-xl;
+  }
+
+  h6 {
+    @apply text-base md:text-lg;
+  }
+
+  p {
+    @apply text-base leading-relaxed;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply px-6 py-3 text-white font-medium rounded-xl shadow-md hover:shadow-lg transition-all duration-200 transform hover:scale-[1.02] active:scale-[0.98];
+    background: linear-gradient(135deg, #588a7e 0%, #456f66 100%);
+  }
+
+  .btn-primary:hover {
+    background: linear-gradient(135deg, #456f66 0%, #385a53 100%);
+  }
+
+  .btn-secondary {
+    @apply px-6 py-3 font-medium rounded-xl shadow-sm border-2 transition-all duration-200;
+    background-color: var(--bg-pearl);
+    color: var(--text-primary);
+    border-color: var(--text-muted);
+  }
+
+  .btn-secondary:hover {
+    background-color: var(--bg-sand);
+    border-color: var(--text-tertiary);
+  }
+
+  .btn-accent {
+    @apply px-6 py-3 text-white font-medium rounded-xl shadow-md hover:shadow-lg transition-all duration-200 transform hover:scale-[1.02] active:scale-[0.98];
+    background: linear-gradient(135deg, #d4795a 0%, #c15d42 100%);
+  }
+
+  .btn-accent:hover {
+    background: linear-gradient(135deg, #c15d42 0%, #a14937 100());
+  }
+
+  .card {
+    @apply rounded-2xl shadow-sm border p-6;
+    background-color: var(--bg-pearl);
+    border-color: var(--bg-mist);
+  }
+
+  .input-field {
+    @apply px-4 py-3 border-2 rounded-xl focus:outline-none transition-colors;
+    background-color: var(--bg-pearl);
+    border-color: var(--text-placeholder);
+    color: var(--text-primary);
+  }
+
+  .input-field:focus {
+    border-color: var(--color-primary);
+  }
+
+  .verse-highlight {
+    @apply px-3 py-2 rounded-lg border-l-4;
+    background-color: var(--color-verse-light);
+    border-color: var(--color-verse);
+    color: var(--text-primary);
+  }
+
+  .crisis-alert {
+    @apply px-4 py-3 rounded-lg border-l-4;
+    background-color: var(--color-crisis-light);
+    border-color: var(--color-crisis);
+    color: var(--text-primary);
+  }
+
+  .emoji-btn.selected {
+    @apply border-2 border-emerald-600 bg-emerald-100 scale-110;
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+  }
+
+  .emoji-btn.selected:hover {
+    box-shadow: 0 6px 16px rgba(16, 185, 129, 0.4);
+  }
+
+  .emotion-badge {
+    @apply inline-flex items-center gap-1;
+    padding: 4px 8px;
+    margin-right: 4px;
+    background: #e0e7ff;
+    border-radius: 8px;
+    font-weight: 500;
+    color: #4338ca;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.2s ease-out;
+}
+
+.animate-slideUp {
+  animation: slideUp 0.3s ease-out;
+}
+
+/* Ensure buttons respond immediately to taps without delay */
+button, a, [role="button"], .cursor-pointer {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Remove 300ms click delay on mobile */
+* {
+  -webkit-touch-callout: none;
+}
+
+/* Improve button/link tap targets for mobile */
+@media (pointer: coarse) {
+  button, a {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
